@@ -19,7 +19,7 @@ export async function signTypedData(
     parameters: Prettify<
         WrapMessageHashParams & {
             owner: LocalAccount | WebAuthnAccount
-            eip7702: boolean
+            eip7702?: boolean
         } & TypedDataDefinition
     >
 ): Promise<SignTypedDataReturnType> {
@@ -28,7 +28,7 @@ export async function signTypedData(
         address: accountAddress,
         version: accountVersion,
         chainId,
-        eip7702,
+        eip7702 = false,
         ...typedData
     } = parameters
 

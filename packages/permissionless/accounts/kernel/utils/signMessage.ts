@@ -22,12 +22,12 @@ export async function signMessage({
     address: accountAddress,
     version: accountVersion,
     chainId,
-    eip7702
+    eip7702 = false
 }: Prettify<
     {
         message: SignableMessage
         owner: LocalAccount | WebAuthnAccount
-        eip7702: boolean
+        eip7702?: boolean
     } & WrapMessageHashParams
 >): Promise<SignMessageReturnType> {
     if (isWebAuthnAccount(owner)) {
